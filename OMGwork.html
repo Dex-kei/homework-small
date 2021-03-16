@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Truck</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+
+    <!-- tree -->
+    <link
+        href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic'
+        rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="tree.css">
+    <!-- text menu -->
+    <link rel="stylesheet" href="text menu.css">
+    <!-- text card -->
+    <link rel="stylesheet" href="text card.css">
+    <!-- phone 375px -->
+    <link rel="stylesheet" href="OMG work media.css">
+    <style>
+        body {
+
+            background-color: #fff;
+            color: rgb(146, 32, 8);
+
+
+            font-family: 'Open Sans', sans-serif;
+
+            /* line-height: 2em; */
+
+        }
+
+        a {
+            color: rgb(146, 32, 8) !important;
+            text-decoration: none;
+        }
+
+        .linehight {
+            line-height: 2em;
+        }
+
+        .whilebg {
+            background-color: rgb(249, 237, 220);
+        }
+
+        /* ~~~~~~~~~~~~ navbar */
+        .imgsize {
+            width: 100px;
+            height: 100px;
+            margin: 0px 20px 0px 0;
+
+        }
+
+        .nav-item img {
+            width: 100%;
+        }
+
+        .flexalign {
+            align-items: center;
+
+        }
+
+        .navfontsize {
+            font-size: 20px;
+            color: rgb(146, 32, 8);
+        }
+
+        .bgcolor {
+            background-color: #fff;
+            position: fixed;
+            border-radius: 0 0 30px 30px;
+            z-index: 10;
+        }
+
+
+        .navbar {
+            transition: 0.5s;
+        }
+
+        .hide_nav {
+            transform: translateY(-88px);
+        }
+
+        /* ~~~~~~~~~~~~~~~~~page 1   幻燈片~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+        .wrap {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            /* 由父層進行position:relative相對定位 */
+            position: relative;
+        }
+
+        .img-wrap {
+            /* 設定總長度為4000px 上面設定最大播放寬度為800px(5張照片總寬度為4000px  不設置4000px 的話 會被下方absolute + left跑圖 不是首頁圖 ) */
+            width: 500%;
+            height: 100vh;
+            /* 以上面wrap定位起始 讓img統領進行position:absolute絕對定位 自由飄 */
+            position: absolute;
+            left: 0;
+            transition: .5s;
+
+        }
+
+        ul {
+            overflow: hidden;
+
+        }
+
+        .img-wrap li {
+            /* 由於輪播牆是使用Flex橫向5張圖 遇到圖有大有小 需要靠flex -grow basis shrink個別調整比例讓5張圖 都以1:1:1:1:1呈現 */
+            flex-grow: 1;
+            flex-basis: 0;
+            flex-shrink: 0;
+
+        }
+
+        .img-wrap img {
+            width: 100%;
+            height: 100vh;
+            /* 上方已設定好大小比例 */
+            /* 填滿元素的寬度及高度(維持原比例)，通常會剪掉部分的物件 */
+            object-fit: cover;
+
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 0;
+            list-style-type: none;
+
+            display: flex;
+
+
+
+            width: 100%;
+        }
+
+        .slider-dots li {
+            width: 10px;
+            height: 10px;
+            margin: 0 10px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+        }
+
+        /* ~~~~~ restpage */
+
+
+        .restbar_1 {
+
+            text-align: center;
+        }
+
+
+
+        /* ~~~~~~~~~~ page 2  */
+
+        .page_2 {
+            background-color: rgb(249, 237, 220);
+        }
+
+
+
+
+        .bigpage_2bg {
+
+            height: 80vh;
+            margin: 0 auto;
+            object-fit: contain;
+            position: relative;
+            background: url(./image/use\ img/feature-_UC8A1822-1-2.jpg)center center no-repeat;
+            opacity: 0.85;
+            background-size: cover;
+        }
+
+        .bigpage_2bg img {
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            object-fit: cover;
+
+
+        }
+
+        .content_left {
+            background-color: rgba(255, 255, 255, 0.774);
+            /* width: 400px;
+            height: 600px; */
+            position: absolute;
+            top: 15%;
+            left: 0;
+            border-radius: 0 10px 10px 0;
+
+        }
+
+        .content_left p {
+
+            font-size: 20px;
+            padding: 120px 60px 90px 60px;
+            line-height: 3rem;
+
+        }
+
+        /* ~ treeline */
+        /* link css */
+
+
+
+        /* ~~~~~~~~~ page 3 */
+        .showinpage3 {
+            opacity: 0;
+
+            transition: 1s;
+            transition-duration: 2s;
+            transition-delay: 0.5s;
+
+        }
+
+        .showinpage3-1 {
+            opacity: 0;
+
+            transition: 1s;
+            transition-duration: 2s;
+            transition-delay: 0.5s;
+
+        }
+
+
+
+        .bigcard {
+            margin-bottom: 100px;
+        }
+
+        .bigcardpad {
+
+
+            margin: 0 auto;
+
+        }
+
+        .bigcardflex {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .bigcard_1 {
+            position: relative;
+            width: calc(50% - 20px);
+
+        }
+
+        .marginwidth_1 {
+
+            margin: 100px 0 0;
+        }
+
+        .marginwidth_2 {
+
+            margin: 100px 0 0;
+            margin: calc(20% + 150px) 0 0;
+        }
+
+        .bigcard_1_img {
+            position: relative;
+        }
+
+        .bigcard_1_img img {
+            width: 100%;
+
+        }
+
+
+
+        .spane {
+            letter-spacing: 3px;
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+
+        .Titlewords {
+
+
+
+            bottom: auto;
+            left: auto;
+            position: absolute;
+            z-index: 1;
+
+        }
+
+
+
+
+        /* ~~~~~~~~~~~~~ page 4 */
+        .page_4 {
+            margin-top: 100px;
+
+
+        }
+
+        .right-side .front .part-one p {
+            color: black;
+            margin: 0px;
+            font-size: 13px;
+        }
+
+
+        /* ~~~~~~~~ page 5 */
+
+
+
+        .mapimage {
+            margin: 0 auto;
+            /* width: 800px;
+            height: 500px; */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+
+        .mapmessage {
+            margin: auto;
+            display: flex;
+
+        }
+
+
+        .message p {
+
+            padding: 40px 0;
+        }
+
+
+        /* ~~~~  page 6 */
+        .page_6up {
+            position: relative;
+        }
+
+        .page_6transparent {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            position: absolute;
+            z-index: 2;
+            opacity: 0.15;
+        }
+
+        .page_6up .page_6bg {
+            width: 100%;
+
+            background: url(./image/use\ img/UC8A2123\ EX.jpg) center center no-repeat;
+            background-size: cover;
+
+            opacity: 0.8;
+        }
+
+        #booking {
+            /* width: 800px;
+            height: 500px; */
+            background-color: #fff;
+            opacity: 0.9;
+            border-radius: 10px;
+            margin: auto;
+            padding: 15px;
+            z-index: 5;
+        }
+
+
+        .bookingh1 p {
+            font-size: 1rem;
+        }
+
+        .bookingcenter {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+        }
+
+        .bookingtext {
+            width: 100%;
+            font-size: 1.3rem;
+            line-height: 38px;
+        }
+
+        /* .bookingspane {
+            width: 100%;
+        } */
+
+        .bookinginput_1 {
+            margin-bottom: 16px;
+        }
+
+
+
+
+        .page_6footer {
+            clear: both;
+
+            background-color: rgb(249, 237, 220);
+            /* background-color: rgb(146, 32, 8); */
+            width: 100%;
+
+        }
+
+        .bookingbutton {
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+        }
+
+        .bookingbutton_1 {
+            padding-left: 10px;
+        }
+
+
+        /* ~~~~ page6 footer */
+        .page_6pad {
+
+            height: 100%;
+            display: flex;
+        }
+
+        .page_6left {
+            height: 100%;
+            width: 100%;
+
+        }
+
+        .page_6left_1 {
+            display: flex;
+            width: 100%;
+            height: 100%;
+
+
+        }
+
+        .page_6left_1 div {
+            padding-right: 20px;
+        }
+
+        .footerfontp {
+            margin: 0;
+            font-size: 12px;
+
+            color: rgb(146, 32, 8);
+            /* color: rgb(249, 237, 220); */
+
+        }
+
+        .bookinginput_1 {
+            display: flex;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bgcolor">
+        <ul class="nav d-flex justify-content-between flexalign navbar-light col-12">
+            <li id="navberLogoFast" class="nav-item imgsize">
+                <a class="LOGOresttruck" href="#">
+                    <img src="image/use img/資產 1.svg"></a>
+            </li>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" \>
+                <div class="navbar-nav">
+                    <li class="nav-item">
+                        <a id='menu01' class=" nav-link navfontsize">簡介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id='menu02' class="nav-link navfontsize">特色</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id='menu03' class="nav-link navfontsize">菜單</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id='menu04' class="nav-link navfontsize">連絡我們</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id='menu05' class="nav-link navfontsize">訂位預約</a>
+                    </li>
+                </div>
+
+            </div>
+        </ul>
+    </nav>
+
+    <!-- page 1 -->
+    <div id="page_1" class="wrap">
+        <ul class="list-unstyled d-flex img-wrap">
+            <li><img src="image/use img/UC8A1882-HDR-1.jpg" alt=""></li>
+            <li><img src="./image/use img/UC8A2091.jpg" alt=""></li>
+            <li><img src="./image/use img/UC8A1864.jpg" alt=""></li>
+            <li><img src="./image/use img/780424960fd5ea054765e1f01e5ccd1c.jpg" alt=""></li>
+            <li><img src="./image/use img/pexels-photo-5908060.jpeg" alt=""></li>
+        </ul>
+
+        <ul class="slider-dots">
+            <!-- 下方jQuery導讀(從0開始計算 0~) -->
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <!-- restpage -->
+    <div class="restbar">
+        <div class="restbar_1 whilebg">
+            <p>古樸寧靜的氣氛</p>
+        </div>
+    </div>
+    <!-- page 2 -->
+    <div class="page_2" id="page_2">
+        <div class="bigboxpage_2" id="page_2stop">
+            <div class="bigpage_2bg">
+
+                <div class="content_left">
+                    <p>2013年，<br>
+                        Rest Truck創立於台灣，<br>
+                        以快餐車餐飲為主要經營，<br>
+                        經過多年的調整與轉型，<br>
+                        親切服務與多樣化的選擇，<br>
+                        打造一個與家人、朋友、同事<br>
+                        歡聚時的舒適空間，<br>
+                        創造更多與異人館的歡樂回憶。 </p>
+                </div>
+                <!-- tree~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <div class="treeline">
+                    <ul class="timeline">
+
+                        <!-- Item 1 -->
+                        <li>
+                            <div class="direction-r">
+                                <div class="flag-wrapper">
+                                    <span class="flag">快餐車</span>
+                                </div>
+                                <div class="whileboxbg">
+                                    <div class="desc">2013 ~ 2016<br>
+                                        購買一台快餐車，開始流浪旅程</div>
+                                </div>
+                        </li>
+
+                        <!-- Item 2 -->
+                        <li>
+                            <div class="direction-l">
+                                <div class="flag-wrapper">
+                                    <span class="flag">創店</span>
+                                </div>
+                                <div class="whileboxbg">
+                                    <div class="desc">2016 ~ 2019<br>
+                                        停止流浪，成家立業</div>
+                                </div>
+                        </li>
+
+                        <!-- Item 3 -->
+                        <li>
+                            <div class="direction-r">
+                                <div class="flag-wrapper">
+                                    <span class="flag">新址落成</span>
+                                </div>
+
+                                <div class="whileboxbg">
+                                    <div class="desc ">2019 ~<br>
+                                        新家搬遷</div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="restcolor whilebg hidbg"></div>
+
+    <!-- restpage 2 -->
+    <div class="restbar " id="page_3stop">
+        <div class="restbar_1">
+            <p>秉持純淨手工製作<br>
+                帶來最深的感動</p>
+        </div>
+    </div>
+
+    <!-- page 3 -->
+
+    <div id="page_3" class="page_3">
+        <div class="bigcard ">
+            <div class="bigcardpad">
+                <div class="bigcardflex ">
+
+                    <div class="bigcard_1 marginwidth_1 mediawidth showinpage3 showinpage4">
+                        <div class="bigcard_1_img">
+                            <img src="image/use img/pexels-photo-784632.jpeg">
+                        </div>
+
+                        <div class="title_1 spane">純淨工法</div>
+                        <div class="textp">用時間去等待小麥與酵母自然的醞釀與熟成，更沒有花俏的外型，<br>
+                            為的就是要讓麵包真正做到「好吃」，<br>
+                            回歸烘培初衷，並融入烘培的豐富創新與固執。</div>
+                        <div class="Titlewords ">
+                            <div class="titleword_1">
+                                <div class="word">
+                                    <font>P</font>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="bigcard_1 marginwidth_2 mediawidth showinpage3-1 showinpage4-1">
+                        <div class="bigcard_1_img">
+                            <img src="image/use img/pexels-photo-6642487 EX.jpg">
+                        </div>
+
+                        <div class="title_1 spane">美味安心</div>
+                        <div class="textp">從新鮮、豐盛到季節嚴選，Rest Truck提供最優質的食材為原則，供應美式美味料理，寬敞舒適的用餐空間，定時提供限定活動，<br>更添趣味！</div>
+                        <div class="Titlewords ">
+                            <div class="titleword_1">
+                                <div class="word">
+                                    <font>T</font>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ~~~ restpage -->
+
+    <div class="restbar">
+        <div class="restbar_1 whilebg">
+            <p>菜單</p>
+        </div>
+    </div>
+
+
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ page 4 -->
+
+
+    <div class="page_4" id="page_4stop">
+        <div class="menu " id="menu">
+            <div class="menuopen">
+                <!-- textmenu -->
+                <div class="container_1" id="one">
+                    <div class="left-side">
+                        <!-- 內頁1 -->
+                        <div class="front">
+                            <div class="content">
+                                <div class="part-one">
+                                    <h1>三明治系列</h1>
+                                    <br>
+                                    <p>
+                                        鮪魚蛋沙拉三明治 <br>..........................................................$487
+                                    </p>
+                                    <p>
+                                        德腸美式煎蛋三明治 <br>..........................................................$487
+                                    </p>
+                                </div>
+                                <div class="part-two">
+                                    <h1>美式漢堡系列</h1>
+                                    <br>
+                                    <p>
+                                        美式炭烤豬肋堡 (台灣豬) <br>..........................................................$487
+                                    </p>
+                                    <p>
+                                        德州辣味起司球漢堡 <br>..........................................................$487
+                                    </p>
+                                    <p>
+                                        達拉斯菲力牛堡 (澳洲牛) <br>..........................................................$487
+                                    </p>
+                                    <p>
+                                        安格斯黑牛堡 (澳洲牛)<br>..........................................................$487
+                                    </p>
+                                    <p>
+                                        嫩烤鮭魚排 <br>..........................................................$487
+                                    </p>
+                                    <p>
+                                        飛天鱈魚堡 <br>..........................................................$487
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 第二目  -->
+                        <div class="back">
+                            <div class="content">
+                                <img class="left-image" src="image/use img/233b4ca098a8f00375a73859bdff8748 EXX.jpg"
+                                    alt="empire state building">
+                                <div class="stuff">
+                                    <div>$487</div>
+                                    <div>2人套餐</div>
+                                    <p>
+                                        德腸美式煎蛋三明治
+                                        <br>
+                                        安格斯黑牛堡 (澳洲牛)
+                                        <br>
+                                        ...........................................<br>
+                                        精選炸物<br>...........................................<br>
+                                        肥宅快樂水(紅)<br>
+                                        巧克力奶昔
+
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <!-- 內頁2 -->
+                        <div class="center-content content">
+                            <div class="part-one fontcolorblack">
+                                <h1>超值套餐</h1>
+                                <br>
+                                <p>
+                                    輕食分享餐 <br>..........................................................$487
+                                </p>
+                                <p>
+                                    午下時光分享餐<br>..........................................................$487
+                                </p>
+                                <p>
+                                    94分享餐<br>..........................................................$487
+                                </p>
+                                <p>
+                                    肥宅分享餐<br>..........................................................$487
+                                </p>
+
+                            </div>
+
+
+                            <div class="part-two fontcolorblack">
+                                <br>
+
+                                <br>
+
+                                <h1>飲料系列</h1>
+                                <br>
+                                <p>
+                                    肥宅快樂水(綠) <br>........................................................$487
+                                </p>
+                                <p>
+                                    肥宅快樂水(紅) <br>........................................................$487
+                                </p>
+                                <p>
+                                    紅茶 <br>........................................................$487
+                                </p>
+                                <p>
+                                    美式咖啡 <br>........................................................$487
+                                </p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-side">
+                        <!-- 內頁 右邊 -->
+                        <div class="front">
+                            <div class="content">
+                                <div class="part-one">
+                                    <img class="right-image"
+                                        src="image/use img/a2c2ce36a7e71a9dad3b3d19440c30fd MAX.jpg"
+                                        alt="empire state building">
+                                </div>
+                                <div class="part-two">
+                                    <div class="stuff">
+                                        <br><br><br><br>
+                                        <p>
+                                            拿鐵<br>.............................................................$487
+                                        </p>
+                                        <p>
+                                            巧克力奶昔<br>.............................................................$487
+                                        </p>
+                                        <p>
+                                            每日精選特調<br>.............................................................$487
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>ㄠ
+                        </div>
+                        <div class="back">
+                            <div class="content">
+                                <!-- <img class="right-image"
+                                    src="https://image.freepik.com/free-photo/grayscale-shot-empire-state-building-new-usa_181624-12153.jpg"
+                                    alt="empire state building"> -->
+                                <img class="right-image" src="image/use img/text EX.jpg" alt="empire state building">
+                                <div class="bottom">
+                                    <div class="text">
+                                        welcome!
+                                    </div>
+                                    <div class="highlight">
+                                        Rest Truck
+                                    </div>
+                                    <div class="text">
+                                        菜單
+                                    </div>
+                                    <div class="blurb">
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima amet facere sed
+                                        pariatur
+                                        cupiditate saepe at molestiae tempore iure veritatis.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="menucard ">
+            <section class="cards">
+                <article class="card card--1 marginbutton">
+
+                    <div class="card__img"></div>
+                    <a href="#" class="card_link">
+                        <div class="card__img--hover"></div>
+                    </a>
+                    <div class="card__info">
+                        <span class="card__category">清爽口碑</span>
+                        <h3 class="card__title">三明治系列</h3>
+                        <span class="card__by"> <a href="#" class="card__author" title="author">Sandwich</a></span>
+                    </div>
+                </article>
+
+                <article class="card card--2 marginbutton">
+
+                    <div class="card__img"></div>
+                    <a href="#" class="card_link">
+                        <div class="card__img--hover"></div>
+                    </a>
+                    <div class="card__info">
+                        <span class="card__category"> 經典不敗</span>
+                        <h3 class="card__title">美式漢堡系列</h3>
+                        <span class="card__by"> <a href="#" class="card__author" title="author">Hamburger</a></span>
+                    </div>
+                </article>
+                <article class="card card--3 marginbutton">
+
+                    <div class="card__img"></div>
+                    <a href="#" class="card_link">
+                        <div class="card__img--hover"></div>
+                    </a>
+                    <div class="card__info">
+                        <span class="card__category"> 超值享受</span>
+                        <h3 class="card__title">精選超值套餐系列</h3>
+                        <span class="card__by"> <a href="#" class="card__author" title="author">Value Meals</a></span>
+                    </div>
+                </article>
+                <article class="card card--4 marginbutton">
+
+                    <div class="card__img"></div>
+                    <a href="#" class="card_link">
+                        <div class="card__img--hover"></div>
+                    </a>
+                    <div class="card__info">
+                        <span class="card__category"> 休閒時光</span>
+                        <h3 class="card__title">飲料系列</h3>
+                        <span class="card__by"> <a href="#" class="card__author" title="author">Drink</a></span>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </div>
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~  restpage -->
+
+    <div class="restbar" id="restbar_4">
+        <div class="restbar_1 ">
+            <p>交通資訊</p>
+        </div>
+    </div>
+
+
+    <!--  ~~~~~~~~~~~~~~~~  page5 -->
+    <div class="page_5" id="page_5">
+        <div class="mappage col  ">
+            <div class="mapimage col col-lg-5">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d903.7543887261062!2d121.54324114081022!3d25.033478307359474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x952a88ba2894f51!2z6Ie654Gj5LyB6YqAIOW-qeiIiOWIhuihjA!5e0!3m2!1szh-TW!2stw!4v1615386860612!5m2!1szh-TW!2stw"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            </div>
+
+            <div class="mapmessage1 col col-lg-5">
+                <div class="message col  d-flex messagepd">
+                    <div class="col col-lg-3">地址</div>
+                    <div class="col">106台北市大安區復興南路一段390號</div>
+                </div>
+                <div class="message1 col  d-flex messagepd">
+                    <div class="col col-lg-3">電話</div>
+                    <div class="col">02-6666-6666</div>
+                </div>
+                <div class="message1 col  d-flex messagepd">
+                    <div class="col col-lg-3">營業時間</div>
+                    <div class="col">09:00~21:00 周一公休</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ~~~ restpage -->
+    <div class="restbar">
+        <div class="restbar_1 ">
+            <p>定位預約</p>
+        </div>
+    </div>
+
+
+    <!-- ~~~~~~~~~~~~~~~~page6  -->
+
+    <div class="page_6" id="page_6">
+        <div class="page_6up">
+
+            <div class="page_6bg">
+                <div class="booking col-lg-5" id="booking">
+                    <div class="bookingpad col">
+                        <div class="bookingh1 col">
+                            <h1><strong>訂位在這!</strong></h1>
+                            <div class="col">
+                                <p>可接受 2-8 位訂位（含大人與小孩） * 超過 8 人的訂位，請使用電話預約</p>
+                            </div>
+                        </div>
+                        <div class="bookingcenter ">
+                            <div class="bookingtext  ">
+                                <div class="bookingtext_1   dsplay ">
+
+                                    <div class="col ">日期</div>
+
+
+
+                                    <div class="bookinginput_1 col">
+
+                                        <input class="form-control" type="date" id="date_today">
+
+
+                                    </div>
+                                </div>
+
+                                <div class="bookingtext_1  dsplay">
+                                    <div class="col ">時段</div>
+
+                                    <div class="form-group col">
+                                        <select class="form-control" id="exampleInputTime">
+                                            <option value="11:00">11:00</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="17:00">17:00</option>
+                                            <option value="18:00">18:00</option>
+                                            <option value="19:00">19:00</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="bookingtext_1  dsplay ">
+                                    <div class="col ">人數</div>
+
+                                    <div class="form-group col">
+                                        <select class="form-control" id="exampleInputpeople">
+                                            <option value="2人">2人</option>
+                                            <option value="3人">3人</option>
+                                            <option value="4人">4人</option>
+                                            <option value="5人">5人</option>
+                                            <option value="6人">6人</option>
+                                            <option value="7人">7人</option>
+                                            <option value="8人">8人</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="bookingtext_1   dsplay ">
+                                    <div class="col ">姓名</div>
+
+                                    <div class="form-group col">
+                                        <input type="email" class="form-control" id="exampleInputName"
+                                            aria-describedby="emailHelp" placeholder="Name">
+
+                                    </div>
+                                </div>
+
+                                <div class="bookingtext_1   dsplay ">
+                                    <div class="col ">電話</div>
+
+                                    <div class="form-group col">
+                                        <input type="email" class="form-control" id="exampleInputPhoneNumber"
+                                            aria-describedby="emailHelp" placeholder="Phone Number">
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="bookingbutton col">
+                            <div class="bookingbutton_1 ">
+                                <button type="button" id="buttonFast" class="btn btn-secondary btn-lg ">快速輸入</button>
+                            </div>
+                            <div class="bookingbutton_1">
+                                <button type="button" id="buttonOK" class="btn btn-primary btn-lg buttonOK">確定</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="page_6footer">
+            <div class="page_6pad">
+                <div class="page_6left">
+                    <div class="page_6left_1 col page_6padfoot">
+                        <div class="page6left_text footerfontp col-5">
+                            <p>聯絡我們</p>
+                        </div>
+                        <ul class="page6left_number footerfontp col">
+                            <li>02-6666-6666</li>
+                            <li>
+                                <a href="mailto:support@tsunamiworks.com"
+                                    class="page6left_number">contactus@gmail.com</a>
+                            </li>
+                            <li>
+                                <a href="" class="page6left_number">找到Rest Truck</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="page_6left_1 col page_6padfoot">
+                        <div class="page6left_text footerfontp col-5">
+                            <p>服務</p>
+                        </div>
+                        <ul class="page6left_number footerfontp col">
+                            <li>
+                                <a href="" class="page6left_number">首頁</a>
+                            </li>
+                            <li>
+                                <a href="" class="page6left_number">簡介</a>
+                            </li>
+
+                            <li>
+                                <a href="" class="page6left_number">訂位預約</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="page_6left_1 col page_6padfoot">
+                        <div class="page6left_text footerfontp col-5">
+                            <p>訊息</p>
+                        </div>
+                        <ul class="page6left_number footerfontp col">
+                            <li>
+                                <a href="" class="page6left_number">簡介</a>
+
+                            </li>
+                            <li>
+                                <a href="" class="page6left_number">菜單</a>
+
+                            </li>
+                            <li>
+                                <a href="https://ifoodie.uservoice.com/knowledgebase/articles/435347"
+                                    class="page6left_number">隱私政策</a>
+
+                            </li>
+                            <li>
+                                <a href="https://ifoodie.uservoice.com/knowledgebase/articles/807897"
+                                    class="page6left_number">服務條款</a>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="page_6right footerfontp dsplay col">
+                    <a class="LOGOicon col">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 32 32">
+                            <title>facebook2</title>
+                            <path fill="rgb(146, 32, 8)"
+                                d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h13v-14h-4v-4h4v-2c0-3.306 2.694-6 6-6h4v4h-4c-1.1 0-2 0.9-2 2v2h6l-1 4h-5v14h9c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3z">
+                            </path>
+                        </svg>
+                    </a>
+
+                    <a class="LOGOicon col">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 32 32">
+                            <title>twitter1</title>
+                            <path fill="rgb(146, 32, 8)"
+                                d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z">
+                            </path>
+                        </svg>
+
+                    </a>
+                    <a class="LOGOicon col ">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 32 32">
+                            <title>instagram</title>
+                            <path fill="rgb(146, 32, 8)"
+                                d="M16 2.881c4.275 0 4.781 0.019 6.462 0.094 1.563 0.069 2.406 0.331 2.969 0.55 0.744 0.288 1.281 0.638 1.837 1.194 0.563 0.563 0.906 1.094 1.2 1.838 0.219 0.563 0.481 1.412 0.55 2.969 0.075 1.688 0.094 2.194 0.094 6.463s-0.019 4.781-0.094 6.463c-0.069 1.563-0.331 2.406-0.55 2.969-0.288 0.744-0.637 1.281-1.194 1.837-0.563 0.563-1.094 0.906-1.837 1.2-0.563 0.219-1.413 0.481-2.969 0.55-1.688 0.075-2.194 0.094-6.463 0.094s-4.781-0.019-6.463-0.094c-1.563-0.069-2.406-0.331-2.969-0.55-0.744-0.288-1.281-0.637-1.838-1.194-0.563-0.563-0.906-1.094-1.2-1.837-0.219-0.563-0.481-1.413-0.55-2.969-0.075-1.688-0.094-2.194-0.094-6.463s0.019-4.781 0.094-6.463c0.069-1.563 0.331-2.406 0.55-2.969 0.288-0.744 0.638-1.281 1.194-1.838 0.563-0.563 1.094-0.906 1.838-1.2 0.563-0.219 1.412-0.481 2.969-0.55 1.681-0.075 2.188-0.094 6.463-0.094zM16 0c-4.344 0-4.887 0.019-6.594 0.094-1.7 0.075-2.869 0.35-3.881 0.744-1.056 0.412-1.95 0.956-2.837 1.85-0.894 0.888-1.438 1.781-1.85 2.831-0.394 1.019-0.669 2.181-0.744 3.881-0.075 1.713-0.094 2.256-0.094 6.6s0.019 4.887 0.094 6.594c0.075 1.7 0.35 2.869 0.744 3.881 0.413 1.056 0.956 1.95 1.85 2.837 0.887 0.887 1.781 1.438 2.831 1.844 1.019 0.394 2.181 0.669 3.881 0.744 1.706 0.075 2.25 0.094 6.594 0.094s4.888-0.019 6.594-0.094c1.7-0.075 2.869-0.35 3.881-0.744 1.050-0.406 1.944-0.956 2.831-1.844s1.438-1.781 1.844-2.831c0.394-1.019 0.669-2.181 0.744-3.881 0.075-1.706 0.094-2.25 0.094-6.594s-0.019-4.887-0.094-6.594c-0.075-1.7-0.35-2.869-0.744-3.881-0.394-1.063-0.938-1.956-1.831-2.844-0.887-0.887-1.781-1.438-2.831-1.844-1.019-0.394-2.181-0.669-3.881-0.744-1.712-0.081-2.256-0.1-6.6-0.1v0z">
+                            </path>
+                            <path fill="rgb(146, 32, 8)"
+                                d="M16 7.781c-4.537 0-8.219 3.681-8.219 8.219s3.681 8.219 8.219 8.219 8.219-3.681 8.219-8.219c0-4.537-3.681-8.219-8.219-8.219zM16 21.331c-2.944 0-5.331-2.387-5.331-5.331s2.387-5.331 5.331-5.331c2.944 0 5.331 2.387 5.331 5.331s-2.387 5.331-5.331 5.331z">
+                            </path>
+                            <path fill="rgb(146, 32, 8)"
+                                d="M26.462 7.456c0 1.060-0.859 1.919-1.919 1.919s-1.919-0.859-1.919-1.919c0-1.060 0.859-1.919 1.919-1.919s1.919 0.859 1.919 1.919z">
+                            </path>
+                        </svg>
+
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+    <script>
+        // ~~~~~幻燈片~~~~~
+
+        // 宣告一個變數來儲存現在的頁數   自動播放用
+        // let 作用該區域 為Scope 全域變數
+        // 讓 頁數初始值為0
+        let page = 0;
+
+        // 在進入畫面初始 使白色快捷 顯示在.eq頁面運作
+        $('.slider-dots li').eq(page).css('background', '#fff').siblings().css('background', 'transparent');
+
+
+        // .hover 白色快捷 後運作
+        $(".slider-dots li").hover(function () {
+            // 頁數 = 索引值
+            page = $(this).index();
+
+            console.log('hi你好', $(this));
+            console.log($(this).index());
+            // $(this)代名詞= 被hover的li
+            //  this可用來延續 該動作繼續 代替表示 
+            // .siblings自己以外的元素   背景透明
+            $(this).css('background', '#fff').siblings().css('background', 'transparent');
+
+            //  $(this).index()讀取索引值後 乘* -800 + 'px'
+            $('.img-wrap').css('left', $(this).index() * -100 + '%');
+
+        })
+
+        // 計算範例    數值+文字= -3200+px = -3200px
+        // console.log(4 * -800 + 'px');
+
+
+
+
+        // 範例 .index取得目前符合條件的選擇器是第幾個 (索引值)
+        $('li').click(function () {
+            // 連動上方this選擇該物件  
+            console.log($(this).index());
+        })
+
+
+        // js es6 的 Function寫法, 俗稱箭頭函式 () =>
+        // setInterval 固定延遲了某段時間後 才去執行(不斷循環)
+        setInterval(() => {
+            // 公式  
+            page = page + 1;
+
+            // 讓頁數能夠重製歸0 迴圈   防 頁數總數為5 超過5以上會無法重製作用
+            if (page > 4) {
+                page = 0;
+            }
+
+            // 讓頁數 上方的索引值 導入公式運作 達到圖片自動輪播作用
+            $('.img-wrap').css('left', page * -100 + '%');
+            console.log('page = ', page);
+
+            // 白色方塊快捷 寫入函式內讓 白色快捷 與 圖片能夠同步作用
+            // .eq選取第N個 
+            $('.slider-dots li').eq(page).css('background', "#fff").siblings().css('background', 'transparent');
+
+
+
+            // 3000 表示 3000毫秒 = 3秒間隔
+        }, 3000);
+
+// ~~~~~~~~~~~~~~~~~~~~~~~
+    </script>
+
+    <!-- navbar -->
+    <script>
+// $('#navberLogoFast').click(function (event) {
+//             event.preventDefault();
+//             $('#exampleInputName').val('#').css();
+
+//         })
+// </script>
+
+    <script>
+        let scrollLast = 0;
+
+        $(window).scroll(function () {
+            console.log('scoll top', $(this).scrollTop());
+            let scrollNow = $(this).scrollTop();
+
+            if (scrollNow <= 300) {
+                $('.navbar').removeClass('hide_nav');
+            }
+            else {
+                if (scrollLast < scrollNow) {
+                    // 往下
+                    console.log('往下');
+                    $('.navbar').addClass('hide_nav');
+                }
+                else {
+                    // 往上
+                    console.log('往上');
+                    $('.navbar').removeClass('hide_nav');
+                }
+            }
+
+            scrollLast = scrollNow;
+
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <!-- text meun -->
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script>
+        let container_1 = document.querySelector(".container_1");
+        let left = document.querySelector(".left-side");
+        let right = document.querySelector(".right-side");
+        let center = document.querySelector(".center");
+        let state = "closed";
+
+        container_1.onclick = function () {
+            let tl = gsap.timeline();
+            if (state == "closed") {
+                right.style.transform = "rotateY(-20deg)";
+                state = "half";
+                tl.set(".center-content", { opacity: 0 });
+                return state;
+            } else if (state == "half") {
+                left.style.transform = "rotateY(20deg)";
+                state = "open";
+                tl.to(".center-content", 1, { opacity: 1 });
+                return state;
+            } else {
+                right.style.transform = "rotateY(-180deg)";
+                left.style.transform = "rotateY(180deg)";
+                tl.set(".center-content", { opacity: 0 });
+                state = "closed";
+                return state;
+            }
+        };
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var mydate = new Date();
+        $('#buttonFast').click(function (event) {
+            event.preventDefault();
+
+            $('#exampleInputName').val('資策會');
+            $('#exampleInputPhoneNumber').val('(02)-6631-6666');
+            $('#exampleInputTime').val('17:00');
+            $('#exampleInputpeople').val('4人');
+            $('#date_today').val("2021-03-15");
+        })
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        $('.buttonOK').click(function () {
+            Swal.fire({
+                icon: 'success',
+                title: '訂位成功!',
+                text: '感謝您，預訂座位只保留15分鐘!',
+                footer: '<a href>如有變更或取消，請您來電通知 謝謝 >w<~b</a>'
+            })
+        })
+
+    </script>
+
+    <script>
+
+
+        let navTop = $('.showinpage3').offset().top;
+
+
+        $(window).scroll(function () {
+            // console.log('scroll top', $(this).scrollTop())
+
+            console.log('hi top', $(this).scrollTop());
+
+            let scrollTop = $(this).scrollTop();
+            console.log('navTop', navTop);
+            console.log('scrollTop', scrollTop);
+
+            if (scrollTop >= 1500) {
+                // nav fixed 
+                let animate = "animate__lightSpeedInLeft"
+                $('.showinpage3').addClass(animate).css('opacity', '1');
+
+            }
+
+        })
+
+        $(window).scroll(function () {
+            // console.log('scroll top', $(this).scrollTop())
+
+            console.log('hi top', $(this).scrollTop());
+
+            let scrollTop = $(this).scrollTop();
+            console.log('navTop', navTop);
+            console.log('scrollTop', scrollTop);
+
+            if (scrollTop >= 2200) {
+                // nav fixed 
+                let animate = "animate__animated animate__fadeInLeft animate__slow"
+                $('.showinpage3-1').addClass(animate).css('transform', 'trabslate3d(0,0,0)');
+
+            }
+
+        })
+
+        let section1 = document.getElementById('page_2stop').offsetTop
+        let section2 = document.getElementById('page_3stop').offsetTop
+        let section3 = document.getElementById('page_4stop').offsetTop
+        let section4 = document.getElementById('restbar_4').offsetTop
+        let section5 = document.getElementById('page_5').offsetTop
+        let section6 = document.getElementById('page_6').offsetTop
+
+
+        console.log('top', section1);
+        console.log('top', section2);
+        console.log('top', section3);
+        console.log('top', section4);
+        console.log('top', section5);
+        console.log('top', section6);
+
+        $('#menu01').click(function () {
+            window.scrollTo({
+                top: (section1),
+                behavior: 'smooth'
+            });
+        })
+        $('#menu02').click(function () {
+            window.scrollTo({
+                top: (section2) - 100,
+                behavior: 'smooth'
+            });
+        })
+        $('#menu03').click(function () {
+            window.scrollTo({
+                top: (section3),
+                behavior: 'smooth'
+            });
+        })
+        $('#menu04').click(function () {
+            window.scrollTo({
+                top: (section4),
+                behavior: 'smooth'
+            });
+        })
+        $('#menu05').click(function () {
+            window.scrollTo({
+                top: (section5),
+                behavior: 'smooth'
+            });
+        })
+        $('#menu06').click(function () {
+            window.scrollTo({
+                top: (section6),
+                behavior: 'smooth'
+            });
+        })
+
+    </script>
+
+
+</body>
+
+</html>

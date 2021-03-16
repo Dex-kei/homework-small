@@ -1,0 +1,202 @@
+/* @media (max-width:375px) {
+class { XXX;}
+} */
+
+/*原始 */
+@media  (min-width:992px) {
+    body{
+        font-size: 150%;
+    }
+    .bgcolor { 
+        right:0;
+       }
+    
+    /* .treeline {
+        top: 10%;
+        right: 20%;
+    } */
+    .bigpage_2bg {
+        width: 80vw;  
+    }
+    .treeline{
+        height: 100%;
+        padding: 50px;
+    }
+    .bigboxpage_2 {
+        padding: 100px 0;
+    }
+    .restbar_1 {
+        padding: 100px 0;
+    }
+    .slider-dots{
+        justify-content: flex-end;
+        padding-right: 50px;
+    }
+    .restcolor {
+        padding: 40px;
+    }
+    .cards {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            /* flex-wrap: wrap; */
+            padding: 0 50px 50px 50px;
+        }
+        .card {
+            /*
+   * min width = 300
+   * max width = 600 
+  */
+            width: calc(300px + (600 - 300) * ((100vw - 576px) / (1400 - 576)));
+        }
+
+        .messagepd{
+            padding: 50px;
+        }
+        .mappage{
+            display: flex;
+        }
+        .dsplay{
+            display: flex
+            ;
+        }
+        .bookingpad {
+            padding: 25px 70px;
+        }
+        
+        .page_6up .page_6bg{
+            padding-top: 10%; 
+            height: 85vh;
+        }
+        
+        .page_6left {
+           
+            display: flex;
+        }
+
+        .page_6pad {
+            padding: 30px;
+           
+        }
+        .Titlewords{
+            font-size: 300px;
+            line-height: 1;
+            bottom: auto;
+            left: auto;
+            right: 40px;
+            top: -100px;
+            z-index: 1;
+        }
+
+        .bigcardpad {
+            padding: 0;
+            max-width: 1440px;
+            margin: 0 auto;
+
+        }
+        .textp {
+            font-size: 16px;
+            line-height: 2.2rem;
+        }
+        
+        
+}
+    /* 收縮後 */
+@media (max-width: 992px) {
+    body{
+        font-size: 100%;
+    }
+    .bgcolor { 
+       width: 100%;
+    }
+       
+    .imgsize {
+        width: 80px;
+        height: 80px;
+    }
+    .content_left{
+        visibility: hidden;
+    }
+    /* .treeline{
+        top: 50%;
+        right: 50%;
+        transform: translate(50%,-50%);
+    } */
+    /* .bigpage_2bg{
+        
+    } */
+
+    .bigboxpage_2 {
+        padding: 2px 0;
+    }
+    .restbar_1 {
+        padding: 40px 0;
+
+        text-align: center;
+    }
+    .slider-dots{
+        justify-content: center;
+        
+    } 
+    .hidbg{
+        visibility: hidden;
+    }
+    .menu {  
+        /* 手機板時 菜單消失 此CSS檔必須在 MENU CSS檔的下方讀取 */
+        display: none;
+        }
+    .marginbutton{
+        margin: 0 0 10px 0;
+    }    
+
+    .messagepd{
+        padding: 10px;
+    }
+    .mapimage{
+        height: 300px;
+    }
+.dsplay{
+    display: grid;
+}
+.page_6up .page_6bg{
+    padding:25px;
+}
+.page_6pad {
+    padding: 17px;
+   
+}
+
+.page_6padfoot{
+    padding-bottom: 10px;
+}
+
+.bigcardpad {
+    padding: 0 20px;
+
+}
+
+.textp {
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.Titlewords{
+    font-size: 200px;
+    line-height: 1;
+    bottom: auto;
+    left: auto;
+    right: 40px;
+    top: -100px;
+    z-index: 1;
+}
+
+
+
+.bigcardflex > .mediawidth {
+    width: 100%;
+    }
+
+   
+
+
+    }
